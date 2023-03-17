@@ -2,11 +2,6 @@ name: Manually trigger an Azure Machine Learning job
 
 on:
   workflow_dispatch:
-    inputs:
-      regularization_rate:
-        description: 'Regularization rate'
-        required: true
-        default: 0.1 
 
 jobs:
   train:
