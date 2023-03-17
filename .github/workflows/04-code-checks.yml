@@ -8,7 +8,7 @@ on:
 
 jobs:
   job1:
-    name: linting
+    name: manual-linting
     runs-on: ubuntu-latest
     steps:
     - name: Check out repo
