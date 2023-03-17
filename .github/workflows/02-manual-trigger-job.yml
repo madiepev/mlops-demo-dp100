@@ -2,6 +2,17 @@ name: Manually trigger an Azure Machine Learning job
 
 on:
   workflow_dispatch:
+    inputs:
+      resource_group:
+        description: 'Resource group name'
+        required: true
+        default: 'rg-dev-mlops' 
+        type: string
+      aml_workspace:
+        description: 'Azure Machine Learning workspace name'
+        required: true
+        default: 'mlw-dev-mlops' 
+        type: string
 
 jobs:
   train:
@@ -21,4 +32,4 @@ jobs:
         az configure --defaults workspace="mlw-dp100-labs"
     - name: Trigger Azure Machine Learning job
       run: |
-        az ml job create --file src/job.yml
+        az ml job create --file src/job.yml "${{ github.event.inputs.aml_workspace }}" --resource-group "${{ github.event.inputs.resource_group }}"
