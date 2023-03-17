@@ -3,11 +3,14 @@ name: Manually trigger an Azure Machine Learning job
 on:
   workflow_dispatch:
     inputs:
+      input_data:
+        description: 'Input data'
+        required: true
+        default: 'azureml:diabetes-folder:1'
       regularization_rate:
         description: 'Regularization rate'
         required: true
         default: 0.1 
-        type: boolean
 
 jobs:
   train:
