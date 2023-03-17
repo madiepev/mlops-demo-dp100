@@ -26,4 +26,4 @@ jobs:
         az configure --defaults workspace="mlw-dp100-labs"
     - name: Trigger Azure Machine Learning job
       run: |
-        az ml job create --file src/job.yml --training_data azureml:diabetes-folder:1 --reg_rate "${{ github.event.inputs.regularization_rate }}"
+        az ml job create --file src/job.yml --reg_rate "${{ github.event.inputs.regularization_rate }}"
